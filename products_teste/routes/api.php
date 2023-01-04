@@ -32,6 +32,7 @@ use App\Http\Controllers\AuthController;
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::apiResource('category', CategoryController::class);
     Route::apiResource('product', ProductController::class);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);
